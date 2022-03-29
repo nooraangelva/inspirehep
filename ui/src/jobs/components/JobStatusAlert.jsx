@@ -12,7 +12,12 @@ function JobStatusAlert({ status }) {
       <div className="mb2">
         <Alert
           type={ALERT_TYPES_BY_STATUS[status]}
-          message={<span>This job is {status}!</span>}
+          message={
+            <span>
+              This record is not part of the INSPIRE Literature collection.
+              Learn more.
+            </span>
+          }
           showIcon={false}
         />
       </div>

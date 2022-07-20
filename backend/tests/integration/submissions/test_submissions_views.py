@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 import orjson
 import pytest
 import requests_mock
+from deepdiff import DeepDiff
 from flask import current_app, url_for
 from freezegun import freeze_time
 from helpers.utils import (
@@ -2259,7 +2260,7 @@ def test_new_institution_submission(
         if key in expected_record_data
     }
 
-    assert institution_record == expected_record_data
+    assert DeepDiff(institution_record, expected_record_data, ignore_order=True)
 
 
 def test_new_institution_submission_with_empty_data(
